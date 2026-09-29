@@ -5,25 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ella Chou ｜作品集</title>
 
-<!--
-  ============================================================
-  這個檔案是一個「可以直接雙擊在瀏覽器打開」的單檔網站。
-  所有 HTML / CSS / JavaScript 都寫在同一個檔案裡，方便你本地端預覽與修改。
-  請直接往下找「◎ 在這裡替換成你自己的內容」的註解區塊，
-  那些地方就是你要動手修改的地方。
-  ============================================================
--->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,380;9..144,460;9..144,560&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-  /* ============================================================
-     設計系統（Design Tokens）
-     主題概念：「看片台 / Contact Sheet」— 像剪輯師在燈箱上檢視底片一樣，
-     淺色紙感背景、細線分隔、深松綠當作 accent（呼應色鍵合成的意象）。
-     ============================================================ */
   :root{
     --bg: #faf9f6;
     --bg-card: #ffffff;
@@ -92,7 +78,6 @@
     padding: 0 clamp(20px, 5vw, 56px);
   }
 
-  /* ---------- 頂部個人簡介區塊 ---------- */
   .hero{
     padding: clamp(56px, 9vw, 108px) 0 clamp(40px, 6vw, 64px);
     border-bottom: 1px solid var(--line);
@@ -107,9 +92,6 @@
     animation: heroIn .8s var(--ease) forwards;
   }
   @keyframes heroIn{ to{ opacity:1; transform:none; } }
-  @media (prefers-reduced-motion: reduce){
-    .hero-grid{ animation: none; opacity:1; transform:none; }
-  }
 
   .eyebrow-line{
     display:flex; align-items:center; gap:10px;
@@ -157,7 +139,6 @@
     color: var(--accent);
   }
 
-  /* ---------- 分類篩選列 ---------- */
   .filter-bar{
     padding: 20px 0;
     border-bottom: 1px solid var(--line);
@@ -190,7 +171,6 @@
   .filter-btn[aria-pressed="true"]::after{ transform: scaleX(1); }
   .filter-btn:hover{ color: var(--ink); }
 
-  /* ---------- 作品網格 ---------- */
   .grid{
     padding: clamp(28px, 5vw, 48px) 0 clamp(60px, 8vw, 96px);
     display: grid;
@@ -221,13 +201,10 @@
   
   @media (min-width: 600px) {
     .reel.is-landscape {
-    grid-column: span 2;
-   }
+      grid-column: span 2;
+    }
   }
   
-  .reel-frame video{
-    width:100%; height:100%; object-fit: cover;
-  }
   .frame-no{
     position:absolute; top:8px; left:8px;
     font-family: 'Work Sans', sans-serif;
@@ -237,38 +214,8 @@
     color: #f2ede3;
     background: rgba(15,14,12,.55);
     padding: 3px 6px;
+    z-index: 2;
   }
-  .timecode{
-    position:absolute; bottom:8px; right:8px;
-    font-variant-numeric: tabular-nums;
-    font-size: .72rem;
-    color: #f2ede3;
-    background: rgba(15,14,12,.55);
-    padding: 3px 6px;
-  }
-  .play-toggle{
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    background: transparent;
-    border:none; cursor:pointer;
-    display:flex; align-items:center; justify-content:center;
-    color: #f2ede3;
-  }
-  .play-toggle .icon{
-    width: 46px; height:46px;
-    border-radius:50%;
-    border: 1px solid rgba(242,237,227,.7);
-    display:flex; align-items:center; justify-content:center;
-    background: rgba(15,14,12,.35);
-    opacity: 0;
-    transform: scale(.9);
-    transition: opacity .2s var(--ease), transform .2s var(--ease);
-  }
-  .reel-frame:hover .play-toggle .icon,
-  .play-toggle:focus-visible .icon{
-    opacity: 1; transform: scale(1);
-  }
-  .play-toggle[data-playing="true"] .icon{ opacity: 1; }
 
   .reel-meta{ padding-top: 14px; }
   .reel-meta h3{
@@ -325,28 +272,28 @@
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow-line"><span class="rec-dot"></span>影像創作者・現正上線</div>
-      <!-- ◎ 在這裡替換成你自己的內容：姓名 / 大標題 -->
       <h1>Ella Chou</h1>
       <p class="role">自由剪輯創作者</p>
     </div>
     <div class="hero-side">
-      <!-- ◎ 在這裡替換成你自己的內容：一段自我介紹文字 -->
       <p>多種剪輯風格，期待與您合作！</p>
       <ul class="social-links">
-        <!-- ◎ 在這裡替換成你自己的社群連結網址 -->
         <li><a href="https://www.instagram.com/ela_9847/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://youtube.com/channel/UCDxExDj2_930VnAfL9XEHxQ?si=VLZ3iBr2a0amV68N">youtube</a></li>
+        <li><a href="https://youtube.com/channel/UCDxExDj2_930VnAfL9XEHxQ?si=VLZ3iBr2a0amV68N" target="_blank" rel="noopener">youtube</a></li>
         <li><a href="mailto:elladiarrhea@gmail.com" class="email-btn">合作邀約信箱</a></li>
+      </ul>
     </div>
   </div>
 </header>
 
 <nav class="filter-bar">
   <div class="wrap">
-    <!--
-      ◎ 篩選分類：
-      每個按鈕的 data-filter 對應下方作品卡片的 data-category。
-      要新增分類，兩邊的字串要一致（英文小寫、不要有空格）。
+    <!-- 
+      對應分類按鈕說明：
+      - data-filter="reels" -> 【15~30秒】
+      - data-filter="brand" -> 【30~60秒↑】
+      - data-filter="daily" -> 【60秒↑】旅行類
+      - data-filter="bts"   -> 【60秒↑】敘事類型
     -->
     <ul class="filter-list" id="filterList">
       <li><button class="filter-btn" data-filter="all" aria-pressed="true">【所有作品】</button></li>
@@ -354,8 +301,6 @@
       <li><button class="filter-btn" data-filter="brand" aria-pressed="false">【30~60秒↑】</button></li>
       <li><button class="filter-btn" data-filter="daily" aria-pressed="false">【60秒↑】旅行類</button></li>
       <li><button class="filter-btn" data-filter="bts" aria-pressed="false">【60秒↑】敘事類型</button></li>
-      <li><button class="filter-btn" data-filter="aaa" aria-pressed="false">【60秒↑】敘事類型</button></li>
-
     </ul>
   </div>
 </nav>
@@ -363,63 +308,37 @@
 <main class="wrap">
   <section class="grid" id="grid">
 
-
+    <!-- 1. 【15~30秒】 -->
     <article class="reel is-landscape" data-category="reels">
       <div class="reel-frame">
         <span class="frame-no">01</span>
-        <!-- ◎ 換成你的封面圖與影片檔路徑 -->
-       <iframe src="https://www.youtube.com/embed/GCDh2roRa-M?si=5-eMnSzvaR2DXDx-" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-          </iframe>
+        <iframe src="https://www.youtube.com/embed/GCDh2roRa-M?si=5-eMnSzvaR2DXDx-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
       </div>
       <div class="reel-meta">
-        <!-- ◎ 標題與說明文字 -->
         <h3>2026 北海道</h3>
         <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
         <ul class="tags"><li>Reels</li><li>【15~30秒】</li></ul>
       </div>
     </article> 
-    
+
+    <!-- 2. 【60秒↑】敘事類型 -->
     <article class="reel is-landscape" data-category="bts">
       <div class="reel-frame">
-        <span class="frame-no">01</span>
-        <!-- ◎ 換成你的封面圖與影片檔路徑 -->
-         <iframe src="https://www.youtube.com/embed/LPprQthIyUk?si=9uIIezma4lRrYhRL" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-          </iframe>" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-          </iframe>
+        <span class="frame-no">02</span>
+        <iframe src="https://www.youtube.com/embed/LPprQthIyUk?si=9uIIezma4lRrYhRL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
       </div>
       <div class="reel-meta">
-        <!-- ◎ 標題與說明文字 -->
         <h3>2023 旅行的意義</h3>
         <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
         <ul class="tags"><li>第一名作品</li><li>【60秒↑敘事類型】</li></ul>
       </div>
     </article>
 
+    <!-- 3. 【15~30秒】 -->
     <article class="reel" data-category="reels">
       <div class="reel-frame">
-        <span class="frame-no">02</span>
-       <iframe class="reel-video" src="https://www.youtube.com/embed/84DMAZQ7sO0" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-        </iframe>
+        <span class="frame-no">03</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/84DMAZQ7sO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
       </div>
       <div class="reel-meta">
         <h3>2024 北海道</h3>
@@ -428,16 +347,11 @@
       </div>
     </article>
 
+    <!-- 4. 【15~30秒】 -->
     <article class="reel" data-category="reels">
       <div class="reel-frame">
-        <span class="frame-no">03</span>
-        <iframe class="reel-video" src="https://www.youtube.com/embed/D3-fFHBTQss?feature=share" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-        </iframe>
+        <span class="frame-no">04</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/D3-fFHBTQss?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
       </div>
       <div class="reel-meta">
         <h3>2024 峇厘島</h3>
@@ -446,16 +360,11 @@
       </div>
     </article>
 
+    <!-- 5. 【15~30秒】 -->
     <article class="reel" data-category="reels">
       <div class="reel-frame">
-        <span class="frame-no">04</span>
-        <iframe class="reel-video" src="https://www.youtube.com/embed/j_IuM8N9LVA?feature=share" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-        </iframe>
+        <span class="frame-no">05</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/j_IuM8N9LVA?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
       </div>
       <div class="reel-meta">
         <h3>2023 九州</h3>
@@ -463,18 +372,50 @@
         <ul class="tags"><li>Reels</li><li>【15~30秒】</li></ul>
       </div>
     </article>
-
+    
     <article class="reel" data-category="brand">
       <div class="reel-frame">
         <span class="frame-no">05</span>
-        <iframe class="reel-video" src="https://www.youtube.com/embed/xA7iuUQHldo?feature=share" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-        </iframe>
-        </button>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/3sunxdB47gc?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2025 世界博覽會</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【30~60秒↑】</li></ul>
+      </div>
+    </article>
+
+    <!-- 7. 【60秒↑】旅行類 -->
+    <article class="reel is-landscape" data-category="daily">
+      <div class="reel-frame">
+        <span class="frame-no">07</span>
+        <iframe src="https://www.youtube.com/embed/TauLjnX1YoQ?si=UP6YsBXTYMC-D5PD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2024 北海道</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【60秒↑】旅行類</li></ul>
+      </div>
+    </article> 
+
+    <!-- 8. 【60秒↑】旅行類 -->
+    <article class="reel is-landscape" data-category="daily">
+      <div class="reel-frame">
+        <span class="frame-no">08</span>
+        <iframe src="https://www.youtube.com/embed/w8qcdng72g8?si=q5jD8rIrGSUNvbOs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2025 嘉義</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【60秒↑】旅行類</li></ul>
+      </div>
+    </article> 
+
+    <!-- 6. 【30~60秒↑】 -->
+    <article class="reel" data-category="brand">
+      <div class="reel-frame">
+        <span class="frame-no">06</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/xA7iuUQHldo?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
       </div>
       <div class="reel-meta">
         <h3>2026 畢業</h3>
@@ -482,58 +423,24 @@
         <ul class="tags"><li>Reels</li><li>【30~60秒↑】</li></ul>
       </div>
     </article>
-
-    <article class="reel is-landscape" data-category="daily">
-      <div class="reel-frame">
-        <span class="frame-no">01</span>
-        <!-- ◎ 換成你的封面圖與影片檔路徑 -->
-       <iframe src="https://www.youtube.com/embed/TauLjnX1YoQ?si=UP6YsBXTYMC-D5PD" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-          </iframe>
-      </div>
-      <div class="reel-meta">
-        <!-- ◎ 標題與說明文字 -->
-        <h3>2024 北海道</h3>
-        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
-        <ul class="tags"><li>Reels</li><li>【60秒↑】旅行類</li></ul>
-      </div>
-    </article> 
-
-    <article class="reel is-landscape" data-category="daily">
-      <div class="reel-frame">
-        <span class="frame-no">01</span>
-        <!-- ◎ 換成你的封面圖與影片檔路徑 -->
-       <iframe src="https://www.youtube.com/embed/w8qcdng72g8?si=q5jD8rIrGSUNvbOs" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-          </iframe>
-      </div>
-      <div class="reel-meta">
-        <!-- ◎ 標題與說明文字 -->
-        <h3>2025 嘉義</h3>
-        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
-        <ul class="tags"><li>Reels</li><li>【60秒↑】旅行類</li></ul>
-      </div>
-    </article> 
-
-
+    
     <article class="reel" data-category="brand">
       <div class="reel-frame">
         <span class="frame-no">06</span>
-        <iframe class="reel-video" src="https://www.youtube.com/embed/E9vQGNMLDYc?feature=share" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-        </iframe>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/DZtMdye743E?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2026 唱歌</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【30~60秒↑】</li></ul>
+      </div>
+    </article>
+
+    <!-- 9. 【30~60秒↑】 -->
+    <article class="reel" data-category="brand">
+      <div class="reel-frame">
+        <span class="frame-no">09</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/E9vQGNMLDYc?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
       </div>
       <div class="reel-meta">
         <h3>2023 父親節</h3>
@@ -542,16 +449,11 @@
       </div>
     </article>
 
+    <!-- 10. 【30~60秒↑】 -->
     <article class="reel" data-category="brand">
       <div class="reel-frame">
-        <span class="frame-no">07</span>
-        <iframe class="reel-video" src="https://www.youtube.com/embed/9AXswYBhaxo?feature=share" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-        </iframe>
+        <span class="frame-no">10</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/9AXswYBhaxo?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
       </div>
       <div class="reel-meta">
         <h3>2023 農場</h3>
@@ -560,62 +462,152 @@
       </div>
     </article>
 
-    <article class="reel" data-category="brand">
-      <div class="reel-frame">
-        <span class="frame-no">08</span>
-        <iframe class="reel-video" src="https://www.youtube.com/embed/28l_TlyD6Xo?feature=share" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-        </iframe>
-      </div>
-      <div class="reel-meta">
-        <h3>2023 除夕夜</h3>
-        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
-        <ul class="tags"><li>Reels</li><li>30~60秒↑】</li></ul>
-      </div>
-    </article>
+    <!-- 12. 【60秒↑】旅行類 -->
     <article class="reel is-landscape" data-category="daily">
       <div class="reel-frame">
-        <span class="frame-no">01</span>
-        <!-- ◎ 換成你的封面圖與影片檔路徑 -->
-       <iframe src="https://www.youtube.com/embed/F2L1iZTWN3g?si=jPwLcX0vxTa9L7vj"
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-          </iframe>
+        <span class="frame-no">12</span>
+        <iframe src="https://www.youtube.com/embed/F2L1iZTWN3g?si=jPwLcX0vxTa9L7vj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
       </div>
       <div class="reel-meta">
-        <!-- ◎ 標題與說明文字 -->
         <h3>2023 台北</h3>
         <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
         <ul class="tags"><li>Reels</li><li>【60秒↑】旅行類</li></ul>
       </div>
     </article> 
 
+    <!-- 13. 【30~60秒↑】 -->
     <article class="reel is-landscape" data-category="brand">
       <div class="reel-frame">
-        <span class="frame-no">01</span>
-        <!-- ◎ 換成你的封面圖與影片檔路徑 -->
-       <iframe src="https://www.youtube.com/embed/xqWlz-WhMIE?si=p9NPlrPL4d8YqQlF" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-            style="width:100%; height:100%; position:absolute; top:0; left:0;">
-          </iframe>
+        <span class="frame-no">13</span>
+        <iframe src="https://www.youtube.com/embed/xqWlz-WhMIE?si=p9NPlrPL4d8YqQlF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
       </div>
       <div class="reel-meta">
-        <!-- ◎ 標題與說明文字 -->
         <h3>2026 墾丁</h3>
         <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
         <ul class="tags"><li>Reels</li><li>【30~60秒↑】</li></ul>
       </div>
+    </article>
+    
+    <article class="reel" data-category="brand">
+      <div class="reel-frame">
+        <span class="frame-no">11</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/Cxno1KjGn9Y?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2025 長白山</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【30~60秒↑】</li></ul>
+      </div>
+    </article>
+     <!-- 11. 【30~60秒↑】 -->
+    <article class="reel" data-category="brand">
+      <div class="reel-frame">
+        <span class="frame-no">11</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/28l_TlyD6Xo?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2023 除夕夜</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【30~60秒↑】</li></ul>
+      </div>
+    </article>
+
+    <article class="reel" data-category="reels">
+      <div class="reel-frame">
+        <span class="frame-no">05</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/mto2XDuI4o4?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2021 當你有一個很會拍照的妹妹-1</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【15~30秒】</li></ul>
+      </div>
+    </article>
+
+    <article class="reel" data-category="reels">
+      <div class="reel-frame">
+        <span class="frame-no">05</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/BYHRwgXPVEo?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2021 當你有一個很會拍照的妹妹-2</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【15~30秒】</li></ul>
+      </div>
     </article> 
+    
+    <article class="reel is-landscape" data-category="reels">
+      <div class="reel-frame">
+        <span class="frame-no">13</span>
+        <iframe src="https://www.youtube.com/embed/P4dGPwcBiCk?si=Y1Jm_PwiY563fYIB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2024 宜蘭</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【15~30秒】</li></ul>
+      </div>
+    </article> 
+    
+   
+    <article class="reel is-landscape" data-category="daily">
+      <div class="reel-frame">
+        <span class="frame-no">12</span>
+        <iframe src="https://www.youtube.com/embed/sKO7akc-FN8?si=MG74afg2oCeiYBk7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2023 墾丁 有帶狗</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【60秒↑】旅行類</li></ul>
+      </div>
+    </article> 
+
+    <article class="reel" data-category="daily">
+      <div class="reel-frame">
+        <span class="frame-no">11</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/CMyiHLSWlTY?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2023 大阪</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【60秒↑】旅行類</li></ul>
+      </div>
+    </article>
+    
+    <article class="reel" data-category="daily">
+      <div class="reel-frame">
+        <span class="frame-no">11</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/Qo3VgVobLAY?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2023 九州</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【60秒↑】旅行類</li></ul>
+      </div>
+    </article>
+    
+    <article class="reel" data-category="daily">
+      <div class="reel-frame">
+        <span class="frame-no">11</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/S9E0TEPInBU?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2023 南投五八莊園</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【60秒↑】旅行類</li></ul>
+      </div>
+    </article>
+    
+    <article class="reel" data-category="daily">
+      <div class="reel-frame">
+        <span class="frame-no">11</span>
+        <iframe class="reel-video" src="https://www.youtube.com/embed/ngsjLsfp2zE?feature=share" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; position:absolute; top:0; left:0;"></iframe>
+      </div>
+      <div class="reel-meta">
+        <h3>2024 墾丁</h3>
+        <p>掌握節奏感，呈現不一樣的旅行回憶！</p>
+        <ul class="tags"><li>Reels</li><li>【60秒↑】旅行類</li></ul>
+      </div>
+    </article>
 
   </section>
 </main>
@@ -625,54 +617,11 @@
   <button class="theme-toggle" id="themeToggle" type="button">切換淺／深色</button>
 </footer>
 
-<!--
-  若你選擇上面「做法二」，改用 Instagram 官方嵌入碼，
-  請記得把下面這行加回來（整份頁面只需要一次）：
-  <script async src="//www.instagram.com/embed.js"></script>
--->
-
 <script>
 (function(){
   "use strict";
 
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-  /* ---------- 影片播放控制：點擊播放、懸停預覽、同時只播一支 ---------- */
   var reels = Array.prototype.slice.call(document.querySelectorAll('.reel'));
-
-  function pauseAll(exceptVideo){
-    reels.forEach(function(reel){
-      var v = reel.querySelector('video');
-      var btn = reel.querySelector('.play-toggle');
-      if(v !== exceptVideo && !v.paused){
-        v.pause();
-        btn.setAttribute('data-playing', 'false');
-        btn.querySelector('.icon').textContent = '▶';
-      }
-    });
-  }
-// 監聽所有影片進入全螢幕的動作，並強制鎖定為直式
-document.addEventListener('fullscreenchange', function() {
-    var fullscreenElement = document.fullscreenElement;
-    
-    // 如果有影片正在全螢幕，且它是我們的影片
-    if (fullscreenElement && fullscreenElement.tagName === 'VIDEO') {
-        // 嘗試將螢幕方向鎖定為直向 (portrait)
-        if (screen.orientation && screen.orientation.lock) {
-            screen.orientation.lock('portrait').catch(function(error) {
-                // 部分手機或瀏覽器基於安全隱私限制不允許強制鎖定，會在此忽略錯誤
-            });
-        }
-    } else {
-        // 離開全螢幕時解鎖方向
-        if (screen.orientation && screen.orientation.unlock) {
-            screen.orientation.unlock();
-        }
-    }
-});
-
-  /* ---------- 分類篩選 ---------- */
   var filterButtons = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
 
   filterButtons.forEach(function(button){
@@ -687,15 +636,10 @@ document.addEventListener('fullscreenchange', function() {
         var category = reel.getAttribute('data-category');
         var show = (target === 'all' || category === target);
         reel.classList.toggle('is-hidden', !show);
-        if(!show){
-          var v = reel.querySelector('video');
-          if(!v.paused){ v.pause(); }
-        }
       });
     });
   });
 
-  /* ---------- 淺／深色切換 ---------- */
   var themeToggle = document.getElementById('themeToggle');
   themeToggle.addEventListener('click', function(){
     var current = document.documentElement.getAttribute('data-theme');
